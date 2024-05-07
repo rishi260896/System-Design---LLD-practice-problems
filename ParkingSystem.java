@@ -82,19 +82,16 @@ abstract class TicketCostCalculator{
         throw new IllegalArgumentException("Unknown vehicle type");
     }
   }
-  
+    
   protected static double totalCost(LocalDateTime entryTime, LocalDateTime exitTime, 
   VehicleType type ){
     double hourlyRate = getVehicleHourlyRateByVehicleType(type);
     long totalParkingTime = getTotalHours(entryTime, exitTime);
-    
     return totalParkingTime * hourlyRate;
-  }
-  
+  }  
   private static long getTotalHours(LocalDateTime entryTime, LocalDateTime exitTime){
     return ChronoUnit.HOURS.between(entryTime, exitTime);
-  }
-  
+  } 
 }
 
 // parking lot entity
@@ -130,10 +127,7 @@ public class ParkingLot{
   
    private String generateTicketId(){
     return "TICKET_"+ System.currentTimeMillis();
-  }
-  
-  
-  
+  } 
 }
 
 public class ParkingFloor{
@@ -154,8 +148,7 @@ public class ParkingFloor{
     // implement logic
     
     return 0L;
-  }
-  
+  } 
 }
 
 public class ParkingSpot{
